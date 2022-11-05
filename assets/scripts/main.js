@@ -24,7 +24,7 @@ function getRecipesFromStorage() {
   // A9. TODO - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
-  if(JSON.parse(localStorage.getItem('recipes')) == null){
+  if(localStorage.getItem('recipes') == null){
     return [];
   }
   return JSON.parse(localStorage.getItem('recipes'));
@@ -44,10 +44,15 @@ function addRecipesToDocument(recipes) {
   //            create a <recipe-card> element for each one, and populate
   //            each <recipe-card> with that recipe data using element.data = ...
   //            Append each element to <main>
-  for (let index = 0; index < recipes.length; index++) {
+  // for (let index = 0; index < recipes.length; index++) {
+  //   const card = document.createElement('recipe-card');
+  //   card.data = recipes[index];
+  //   mainElement.appendChild(card);
+  // }
+  for (const key in recipes) {
     const card = document.createElement('recipe-card');
-    card.data = recipes[index];
-    mainElement.appendChild(card);
+     card.data = recipes[key];
+     mainElement.appendChild(card);
   }
 }
 
@@ -94,9 +99,9 @@ function initFormHandler() {
     mainElement.appendChild(recipeCard);
     //b9_get the recipe array from localStorage, add this new recipe to it, 
     //then save the recipes array back to localStorage
-    let recipes = getRecipesFromStorage();
-    recipes.push(recipeObject);
-    saveRecipesToStorage(recipes);
+    let recipess = getRecipesFromStorage();
+    recipess.push(recipeObject);
+    saveRecipesToStorage(recipess);
 
   }
 
