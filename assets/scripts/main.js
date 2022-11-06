@@ -124,7 +124,6 @@ function initFormHandler() {
     //b_12
     localStorage.clear();
     //b_13
-    const mainElement = document.querySelector('main');
     mainElement.innerHTML = "";
 
 
